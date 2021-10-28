@@ -104,10 +104,10 @@ function randomArr(item) {
     return item[Math.floor(Math.random()*item.length)];
 }
 
-// NPC Templates
+// NPC Template
 
 class Fighter {
-    constructor(name, race, weapon, damage, defence, health = 15) {
+    constructor(name, race, weapon, damage, defence, health = 10) {
         this.name = name;
         this.race = race;
         this.weapon = weapon;      
@@ -295,6 +295,8 @@ myWep.readOnly = true;
 myDmg.readOnly = true;
 myDef.readOnly = true;
 myHealth.readOnly = true;
+
+myHealth.value = 15;
 
 function findItem() {
     function find(arr, select) {
