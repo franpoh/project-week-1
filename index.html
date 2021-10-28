@@ -4,24 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel=”stylesheet” href=”styles.css” />
+    <link rel="stylesheet" href="styles.css" />
     <script async src="script.js"></script>
     <title>Currency Converter</title>
 </head>
 <body>
 
+    <div id="div-bg"></div>
+
     <div id="div-zero">
 
-        <h1 id="h1-zero">Welcome to The Tipsy Gauntlet Currency Converter!</h1>
-        <input id="button-zero" type="button" value="Enter!">
+        <h1 class="h1-zero" id="h1-zero-a">Welcome to The Tipsy Gauntlet Currency Converter!</h1>
+
+        <h1 class="h1-zero" id="h1-zero-b">The Ultimate Currency Conversion Engine</h2>
+
+        <h2 id="h2-zero">A seamless experience for all of your currency conversion needs</h3>
+
+        <input id="button-zero" type="button" value="Get Started">
 
     </div>
 
     <div id="div-one">
 
-        <h1 id="h1-one">Time to Prepare!</h1>
+        <h1 class="intro-one" id="h1-one">Time to Prepare!</h1>
 
-        <p id="p-one">As you approach The Tipsy Gauntlet, the sounds of violence, drunken cursing and off-tune instruments fills the air. You ready your equipment:</p>
+        <p class="intro-one" id="p-one-a">As you approach The Tipsy Gauntlet, the sounds of violence, drunken cursing and off-tune instruments fills the air. You ready your equipment:</p>
         
         <div id="div-one-pick">
 
@@ -31,81 +38,76 @@
 
                 <h3 id="h3-one-wep">Weapons: Pick One</h2>
 
-                <ul id="ul-one-wep">
+                <p id="p-one-wep">Note: D means dice</p>
 
-                    <li>
-                        <label for="axe">Battle Axe (+4 STR, -3 DEX)</label>
-                        <input type="checkbox" class="wep-one-check" id="axe" name="axe">
-                    </li>
+                <select class="select-one-all" id="select-one-wep">
 
-                    <li>
-                        <label for="sword">Sword (+3 STR, -2 DEX)</label>
-                        <input type="checkbox" class="wep-one-check" id="sword" name="sword">
-                    </li>
+                    <option disabled>Select Your Option</option>
+                    <option value="1" id="sword">Greatsword (D12, -2 Defence)</option>
+                    <option value="2" id="axe">Battleaxe (D10, -1 Defence)</option>
+                    <option value="3" id="staff">Quarterstaff (D8, -0 Defence)</option>
+                    <option value="4" id="dagger">Twin Daggers (D6, +1 Defence)</option>
+                    <option value="5" id="fist">Bare Hands (D4, +2 Defence)</option>
 
-                    <li>
-                        <label for="staff">Quarterstaff (+2 STR, -1 DEX)</label>
-                        <input type="checkbox" class="wep-one-check" id="staff" name="staff">
-                    </li>
-
-                    <li>
-                        <label for="dagger">Daggers (+1 STR, +1 DEX)</label>
-                        <input type="checkbox" class="wep-one-check" id="dagger" name="dagger">
-                    </li>
-
-                    <li>
-                        <label for="fist">Your Bare Hands (+2 DEX)</label>
-                        <input type="checkbox" class="wep-one-check" id="fist" name="fist">
-                    </li>
-
-                </ul>
+                </select>
 
             </div>
 
             <div id="div-one-misc">
 
-                <h3 id="h3-one-misc">Miscellaneous (20 Points to Spend)</h2>
+                <h3 id="h3-one-misc">Miscellaneous: Pick One</h2>
 
-                <ul id="ul-one-misc">
+                <select class="select-one-all" id="select-one-misc">
 
-                    <li>
-                        <label for="potion">Health Potion (10 Pts)</label>
-                        <input type="checkbox" class="misc-one-check" id="potion" name="potion">
-                    </li>
+                    <option disabled>Select Your Option</option>
+                    <option value="6" id="dog">A Neurotic Chihuahua</option>
+                    <option value="7" id="potion">Health Potion</option>
+                    <option value="8" id="firebomb">Firebomb</option>
+                    <option value="9" id="pocsand">Pocket Sand</option>
+                    <option value="10" id="bean">Magic Beans</option>
 
-                    <li>
-                        <label for="firebomb">Firebomb (10 Pts)</label>
-                        <input type="checkbox" class="misc-one-check" id="firebomb" name="firebomb">
-                    </li>
-
-                    <li>
-                        <label for="pocsand">Pocket Sand (5 Pts)</label>
-                        <input type="checkbox" class="misc-one-check" id="pocsand" name="pocsand">
-                    </li>
-
-                    <li>
-                        <label for="bean">Magic Beans (5 Pts)</label>
-                        <input type="checkbox" class="misc-one-check" id="bean" name="bean">
-                    </li>
-
-                    <li>
-                        <label for="dog">Fighting Hound (15 Pts)</label>
-                        <input type="checkbox" class="misc-one-check" id="dog" name="dog">
-                    </li>
-
-                </ul>
+                </select>
 
             </div>
             
+        </div>
+
+        <div id="div-button-one">
+            <input type="button" id="button-one-preview" value="Preview">
+            <input type="button" id="button-one-ready" value="I'm Ready">
         </div>
 
         <div id="div-one-prof">
 
             <h2 id="h2-one-prof">Your Character</h2>
 
-            <label for="urname"> Your Name: </label>
-            
-            <input type="text" id="urname" name="urname">
+            <div id="div-one-name">
+
+                <label for="myname"> Your Name: </label>
+
+                <input type="text" id="myname" name="myname">
+
+            </div>
+
+            <div id="div-one-name">
+
+                <label for="myrace"> Your Race: </label>
+
+                <select class="select-one-all" id="select-one-race">
+
+                    <option disabled>Select Your Option</option>
+                    <option value="1" id="human">Human</option>
+                    <option value="2" id="elf">Elf</option>
+                    <option value="2" id="dwarf">Dwarf</option>
+                    <option value="2" id="halforc">Half-orc</option>
+                    <option value="2" id="halfling">Halfling</option>
+                    <option value="2" id="gnome">Gnome</option>
+                    <option value="2" id="dragonborn">Dragonborn</option>
+                    <option value="2" id="halfelf">Half-elf</option>
+
+                </select>
+
+            </div>
 
             <div id="div-one-attr">
 
@@ -114,18 +116,23 @@
                 <ul id="ul-one-attr">
 
                     <li>
-                        <label for="str">Strength (Damage)</label>
-                        <input type="text" id="str" name="str">
+                        <label for="mywep">Weapon:</label>
+                        <input type="text" id="mywep" name="mywep">
                     </li>
 
                     <li>
-                        <label for="dex"> Dexterity (Defense)</label>
-                        <input type="text" id="dex" name="dex">
+                        <label for="mydmg">Damage</label>
+                        <input type="text" id="mydmg" name="mydmg">
                     </li>
 
                     <li>
-                        <label for="con">Constitution</label>
-                        <input type="text" id="con" name="con">
+                        <label for="mydef">Defense</label>
+                        <input type="text" id="mydef" name="mydef">
+                    </li>
+
+                    <li>
+                        <label for="myhealth">Health</label>
+                        <input type="text" id="myhealth" name="myhealth" value="20">
                     </li>
 
                 </ul>
@@ -137,7 +144,7 @@
                 <h3 id="h3-one-inv">Inventory</h3>
 
                 <ul id="ul-one-inv"></ul>
-            
+
             </div>
 
         </div>
@@ -146,13 +153,116 @@
 
     <div id="div-two">
 
-        <h1 id="h1-two">Welcome into The Tipsy Gaunlet!</h1>
+        <h1 class="intro-two" id="h1-two">Welcome into The Tipsy Gauntlet!</h1>
 
-        <p id="p-two-a">As you push open the door, you are confronted with a heaving mass of bodies, all in the process of beating the absolute stuffing out of each other. Broken furniture flew overhead as the band plays on with comfortable indifference in the corner. Because what is a bar fight without some rousing music?</p>
+        <p class="intro-two" id="p-two-a">As you push open the door, you are confronted with a heaving mass of bodies, all in the process of beating the absolute stuffing out of each other. Broken furniture fly overhead as the band plays on with comfortable indifference in the corner. They certainly don't get paid enough for this.</p>
 
-        <p id="p-two-b">You start pushing your way towards the bar, but mere physical contact has offended the fighter near you. They turn, foaming at the mouth, and swings at you!</p>
+        <p class="intro-two" id="p-two-b">You start pushing your way towards the bar, but mere physical contact has offended the fighter near you. They turn, foaming at the mouth, and swings at you!</p>
 
-        
+        <div class="button-two-buffer"></div>
+        <input type="button" id="button-two-begin" value="Begin Battle">
+        <div class="button-two-buffer"></div>
+
+        <div id="div-two-fighter">
+
+            <h2 id="h2-two-fighter">Enemy</h3>
+
+            <ul id="ul-two-fighter-a">
+
+                <li>
+                    <label for="fightname">Name:</label>
+                    <input type="text" id="fightname" name="fightname">
+                </li>
+
+                <li>
+                    <label for="fightrace">Race:</label>
+                    <input type="text" id="fightrace" name="fightrace">
+                </li>
+
+            </ul>
+
+            <h3 id="h3-fighter-attr">Attributes</h3>
+
+            <ul id="ul-two-fighter-b">
+
+                <li>
+                    <label for="fightwep">Weapon:</label>
+                    <input type="text" id="fightwep" name="fightwep">
+                </li>
+
+                <li>
+                    <label for="fightdmg">Damage:</label>
+                    <input type="text" id="fightdmg" name="fightdmg">
+                </li>
+
+                <li>
+                    <label for="fightdef">Defence:</label>
+                    <input type="text" id="fightdef" name="fightdef">
+                </li>
+
+                <li>
+                    <label for="fighthealth">Health:</label>
+                    <input type="text" id="fighthealth" name="fighthealth">
+                </li>
+
+            </ul>
+
+        </div>
+
+        <ol id="ol-two-combat"></ol>
+
+    </div>
+
+    <div id="div-three">
+
+        <h1 id="h1-three">Victory is Yours!</h1>
+
+        <p id="p-three-victory">Pushing aside your combatant, you mustered what is left of your strength and threw yourself towards the bar. The barkeeper watched impassively as you desperately hang onto the counter against the maelstrom of brawlers all around you.</p>
+
+        <p id="p-three-convert">You started dumping out your valuables as fast as you can onto the counter, then climbed onto the bar and covered the pile with your body. "How much can I convert this to?" You gasped out while fending away the bawdy drunks with your flailing arms and legs. The barkeeper poked invasively under your body, then offered you this:</p>
+
+        <div id="div-three-convert">
+
+            <div id="div-three-sgd">
+                <label class="label-three" for="text-three-sgd">Convert Singapore Dollars: </label>
+                <input id="text-three-sgd" min="1" type="number">
+                <input class="button-three" id="button-three-sgd" type="button" value="Convert">
+            </div>
+    
+            <div id="div-three-eur">
+                <label class="label-three" for="text-three-eur">Convert Euros: </label>
+                <input id="text-three-eur" min="1" type="number">
+                <input class="button-three" id="button-three-eur" type="button" value="Convert">
+            </div>
+    
+            <div id="div-three-usd">
+                <label class="label-three" for="text-three-usd">Convert US Dollars: </label>
+                <input id="text-three-usd" min="1" type="number">
+                <input class="button-three" id="button-three-usd" type="button" value="Convert">
+            </div>
+
+        </div>
+
+        <div id="div-three-output">
+            <p>Accurate as of 28 October 2021</p>
+            <p id="p-three-sgd"></p>
+            <p id="p-three-eur"></p>
+            <p id="p-three-usd"></p>
+        </div>
+
+        <input type="button" class="button-three" id="button-three-try" value="Try Again!">
+
+    </div>
+
+    <div id="div-four">
+
+        <h1 id="h1-four">You Have Been Defeated!</h1>
+
+        <p id="p-four-defeat">That final attack was too much for your delicate sensibilities and you fall, swooning, upon the ground. Rough hands quickly empty your pockets and divested you of your clothes. The next morning, you woke up in the back alley with nothing to your name but... Someone else's underwear? Nasty.</p>
+
+        <div class="button-four-buffer"></div>
+        <input type="button" id="button-four-try" value="Try Again!">
+        <div class="button-four-buffer"></div>
 
     </div>
 

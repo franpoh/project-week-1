@@ -1,0 +1,219 @@
+#div-bg{
+    opacity: 0;
+    transition: 1s ease-in-out;
+    position: absolute; 
+    width: 100vw;
+    min-height: 100vh; 
+    z-index: 1;
+    background-image: url("https://cdn.mos.cms.futurecdn.net/6Uq8f3QkaaWACBkGCRp2jk.jpg");
+    margin: -10px; 
+}
+
+#div-zero {
+    display: flex;
+    flex-flow: column;
+    margin-top: 25vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    color: rgb(8, 16, 32);
+    opacity: 0;
+    transition: 1s ease-in-out;
+    position: absolute; 
+    width: 99vw;
+    z-index: 2;
+}
+
+.h1-zero {
+    font-size: 40px;
+    line-height: 50%;
+    font-weight: lighter;
+}
+
+#h2-zero {
+    font-size: 20px;
+    font-weight: lighter;
+    line-height: 200%;
+}
+
+#button-zero {
+    margin: auto;
+    width: 125px;
+    font-size: 20px;
+    background-color: rgba(165, 42, 42, 0);
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+
+#div-one {
+    opacity: 0;
+    transition: 1s ease-in-out;
+    font-family:'Times New Roman', Times, serif;
+    position: absolute; 
+    width: 99vw;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    font-size: 120%;
+}
+
+.intro-one {
+    text-align: center;
+    flex-basis: 100%;
+}   
+
+.select-one-all {
+    background: rgba(165, 42, 42, 0);
+    font-size: 80%;
+}
+
+
+#div-one-pick {
+    padding-left: 100px;
+}
+
+#div-one-prof {
+    padding-right: 100px;
+}
+
+#div-button-one {
+    margin: auto;
+    font-family:'Times New Roman', Times, serif;
+}
+
+#button-one-preview {
+    width: 100px;
+    padding: 10px 0 10px 0;
+    background-color: rgba(165, 42, 42, 0);
+    border: 1px solid black;
+    font-size: 100%;
+    font-family:'Times New Roman', Times, serif;
+}
+
+#button-one-ready {
+    width: 100px;
+    padding: 10px 0 10px 0;
+    background-color: rgba(165, 42, 42, 0);
+    border: 1px solid black;
+    font-size: 100%;
+    font-family:'Times New Roman', Times, serif;
+}
+
+#div-two {
+    display: flex;
+    font-family:'Times New Roman', Times, serif;
+    opacity: 0;
+    transition: 1s ease-in-out;
+    position: absolute; 
+    width: 99vw;
+    z-index: 2;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    font-size: 120%;
+}
+
+.intro-two {
+    text-align: center;
+    flex-basis: 100%;
+}
+
+#p-two-b {
+    margin-top: 0px;
+}
+
+.button-two-buffer {
+    flex-basis: 45%;
+    font-family:'Times New Roman', Times, serif;
+}
+
+#button-two-begin {
+    font-size: 100%;
+    flex-basis: 10%;
+    padding: 10px 0 10px 0;
+    background-color: rgba(165, 42, 42, 0);
+    border: 1px solid black;
+    font-family:'Times New Roman', Times, serif;
+}
+
+#div-two-fighter {
+    padding-left: 100px;
+    flex-basis: 30%;
+}
+
+#ol-two-combat {
+    flex-basis: 35%;
+}
+
+#div-three {
+    display: flex;
+    font-family:'Times New Roman', Times, serif;
+    opacity: 0;
+    transition: 1s ease-in-out;
+    position: absolute; 
+    width: 99vw;
+    z-index: 2;
+    justify-content: flex-start;
+    flex-flow: column;
+    font-size: 120%;
+    text-align: center;
+    align-items: center;
+}
+
+#div-three-convert {
+    display: flex;
+    flex-flow: column;
+}
+
+.label-three {
+    display: flex;
+    padding: 1vh 0;
+}
+
+.button-three {
+    font-size: 80%;
+    width: 70px;
+    background-color: rgba(165, 42, 42, 0);
+    border: 1px solid black;
+    font-family:'Times New Roman', Times, serif;
+}
+
+#button-three-try {
+    font-size: 100%;
+    padding: 10px 0 10px 0;
+    width: 110px;
+}
+
+#div-four {
+    display: flex;
+    font-family:'Times New Roman', Times, serif;
+    opacity: 0;
+    transition: 1s ease-in-out;
+    position: absolute; 
+    width: 99vw;
+    z-index: 2;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    font-size: 120%;
+    text-align: center;
+}
+
+#h1-four {
+    margin: auto;
+}
+
+.button-four-buffer {
+    flex-basis: 45%;
+}
+
+#button-four-try {
+    font-size: 100%;
+    flex-basis: 10%;
+    padding: 10px 0 10px 0;
+    background-color: rgba(165, 42, 42, 0);
+    border: 1px solid black;
+    font-family:'Times New Roman', Times, serif;    
+}
+
+
