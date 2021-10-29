@@ -166,37 +166,59 @@ miscArray = [
 
     {
         id: 6,
-        item: "A Neurotic Chihuahua",
-        effect: null, // attack
+        invMisc: "A Neurotic Chihuahua",
+        descrp: "The dog goes in for the bite!",
+        effect: () => {
+            const dog = Math.floor(Math.random()*2) + 1;
+            if (dog === 2) {
+                textSix.value = d12();
+                fightHealth.value -= textSix.value;
+            } else {
+                "No... no. The dog stood there, trembling uncontrollably, and drooled on the floor."
+            }
+        },
     },
 
     {
         id: 7,
-        item: "Health Potion",
-        effect: null, // +10 HP
+        invMisc: "Health Potion",
+        descrp: "You gain 10 points of health back!",
+        effect: () => myHealth.value += 10,
     },
 
     {
         id: 8,
-        item: "Firebomb",
-        effect: d8,
+        invMisc: "Firebomb",
+        descrp: "You threw a homemade molotov at them!",
+        effect: () => {
+            textSix.value = d10();
+            fightHealth.value -= textSix.value;
+        },
     },
 
     {
         id: 9,
-        item: "Pocket Sand",
-        effect: null, // lose a turn
+        invMisc: "Pocket Sand",
+        descrp: "Why is your pockets full of sand? No matter, you throw some at them.",
+        effect: () => {
+            textSix.value = d4();
+            fightHealth.value -= textSix.value;
+        },
     },
 
     {
         id: 10,
-        item: "Magic Beans",
-        effect: null, // poison damage
+        invMisc: "Magic Beans",
+        descrp: "You have some 'Magic Beans'. You throw them at the enemy's feet and hoped that it will do something.",
+        effect: () => {
+            textSix.value = d6();
+            fightHealth.value -= textSix.value;
+        },
     },
 
     {
         id: 11,
-        item: "Gold",
+        invMisc: "Gold",
         effect: null, // adds gold
     }
 ];
@@ -310,7 +332,7 @@ function findItem() {
 
     const miscItem = find(miscArray, selectMisc);
     myInv.innerHTML = "";
-    invOne.innerHTML = miscItem.item
+    invOne.innerHTML = miscItem.invMisc;
     myInv.append(invOne);
 }
 
@@ -365,6 +387,9 @@ const itemNine = document.createElement("li");
 const itemTen = document.createElement("li");
 const itemEleven = document.createElement("li");
 const itemTwelve = document.createElement("li");
+
+const itemThirteen = document.createElement("li");
+const itemFourteen = document.createElement("li");
 
 const textOne = document.createElement("input");
 const textTwo = document.createElement("input");
@@ -530,6 +555,27 @@ buttonMy.addEventListener("click", () => {
     combatList.innerHTML = "";
     attackRoll();
     setTimeout(() => {myAction()}, 1000)
+});
+
+function itemUsage() {
+    const itemUsed = miscArray.find(item => item.invMisc === invOne.innerHTML);
+    itemThirteen.innerHTML = itemUsed.descrp;
+    combatList.append(itemThirteen);
+    combatList.append(itemSix);
+    itemSix.append(textSix);
+    itemUsed.effect();
+}
+
+buttonItem.addEventListener("click", () => {
+    itemUsage();
+    buttonItem.disabled = true;
+    setTimeout(() => {
+        if (fightHealth.value <= 0) {
+        combatList.append(itemEleven);
+        combatList.append(buttonVic);
+    } else {
+        combatList.append(buttonFight);
+    }}, 1000)
 });
 
 // Currency Converter
