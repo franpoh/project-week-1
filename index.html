@@ -26,7 +26,7 @@
 
     <div id="div-one">
 
-        <h1 class="intro-one" id="h1-one">Time to Prepare!</h1>
+        <h1 class="intro-one h1-all" id="h1-one">Time to Prepare!</h1>
 
         <p class="intro-one" id="p-one-a">As you approach The Tipsy Gauntlet, the sounds of violence, drunken cursing and off-tune instruments fills the air. You ready your equipment:</p>
         
@@ -57,7 +57,7 @@
 
                 <h3 id="h3-one-misc">Miscellaneous: Pick One</h2>
 
-                <select class="select-one-all" id="select-one-misc">
+                <select class="select-one-all text-one-all" id="select-one-misc">
 
                     <option disabled>Select Your Option</option>
                     <option value="6" id="dog">A Neurotic Chihuahua</option>
@@ -81,58 +81,61 @@
 
             <h2 id="h2-one-prof">Your Character</h2>
 
-            <div id="div-one-name">
+            <ul id="ul-one-prof">
 
-                <label for="myname"> Your Name: </label>
+                <li id="div-one-name">
 
-                <input type="text" id="myname" name="myname">
+                    <label for="myname">Your Name</label>
+                    <input type="text" class="text-one-all" id="myname" name="myname">
 
-            </div>
+                </li>
 
-            <div id="div-one-name">
+                <li id="div-one-race">
 
-                <label for="myrace"> Your Race: </label>
+                    <label for="myrace">Your Race</label>
 
-                <select class="select-one-all" id="select-one-race">
+                    <select class="select-one-all text-one-all" id="select-one-race">
 
-                    <option disabled>Select Your Option</option>
-                    <option value="1" id="human">Human</option>
-                    <option value="2" id="elf">Elf</option>
-                    <option value="2" id="dwarf">Dwarf</option>
-                    <option value="2" id="halforc">Half-orc</option>
-                    <option value="2" id="halfling">Halfling</option>
-                    <option value="2" id="gnome">Gnome</option>
-                    <option value="2" id="dragonborn">Dragonborn</option>
-                    <option value="2" id="halfelf">Half-elf</option>
+                        <option disabled>Select Your Option</option>
+                        <option value="1" id="human">Human</option>
+                        <option value="2" id="elf">Elf</option>
+                        <option value="2" id="dwarf">Dwarf</option>
+                        <option value="2" id="halforc">Half-orc</option>
+                        <option value="2" id="halfling">Halfling</option>
+                        <option value="2" id="gnome">Gnome</option>
+                        <option value="2" id="dragonborn">Dragonborn</option>
+                        <option value="2" id="halfelf">Half-elf</option>
+                        
+                    </select>
 
-                </select>
+                </li>
 
-            </div>
+            </ul>
 
             <div id="div-one-attr">
 
-                <h3 id="h3-one-attr">Attributes</h3>
+                <h3 class="h3-all" id="h3-one-attr">Attributes</h3>
 
                 <ul id="ul-one-attr">
 
                     <li>
-                        <label for="mywep">Weapon:</label>
-                        <input type="text" id="mywep" name="mywep">
+                        <label for="mywep">Weapon</label>
+                        <input type="text" class="text-one-all" id="mywep" name="mywep">
                     </li>
 
                     <li>
                         <label for="mydmg">Damage</label>
-                        <input type="text" id="mydmg" name="mydmg">
+                        <input type="text" class="text-one-all" id="mydmg" name="mydmg">
                     </li>
 
                     <li>
                         <label for="mydef">Defense</label>
-                        <input type="text" id="mydef" name="mydef">
+                        <input type="text" class="text-one-all" id="mydef" name="mydef">
                     </li>
 
                     <li>
                         <label for="myhealth">Health</label>
-                        <input type="text" id="myhealth" name="myhealth">
+                        <input type="text" class="text-one-all" id="myhealth" name="myhealth">
                     </li>
 
                 </ul>
@@ -141,7 +144,7 @@
 
             <div id="div-one-inv">
 
-                <h3 id="h3-one-inv">Inventory</h3>
+                <h3 class="h3-all" id="h3-one-inv">Inventory</h3>
 
                 <ul id="ul-one-inv"></ul>
 
@@ -153,7 +156,7 @@
 
     <div id="div-two">
 
-        <h1 class="intro-two" id="h1-two">Welcome into The Tipsy Gauntlet!</h1>
+        <h1 class="intro-two h1-all" id="h1-two">Welcome into The Tipsy Gauntlet!</h1>
 
         <p class="intro-two" id="p-two-a">As you push open the door, you are confronted with a heaving mass of bodies, all in the process of beating the absolute stuffing out of each other. Broken furniture fly overhead as the band plays on with comfortable indifference in the corner. They certainly don't get paid enough for this.</p>
 
@@ -171,41 +174,45 @@
 
                 <li>
                     <label for="fightname">Name:</label>
-                    <input type="text" id="fightname" name="fightname">
+                    <input type="text" class="text-two-all" id="fightname" name="fightname">
                 </li>
 
                 <li>
                     <label for="fightrace">Race:</label>
-                    <input type="text" id="fightrace" name="fightrace">
+                    <input type="text" class="text-two-all" id="fightrace" name="fightrace">
                 </li>
 
             </ul>
 
-            <h3 id="h3-fighter-attr">Attributes</h3>
+            <h3 class="h3-all" id="h3-fighter-attr">Attributes</h3>
 
             <ul id="ul-two-fighter-b">
 
                 <li>
                     <label for="fightwep">Weapon:</label>
-                    <input type="text" id="fightwep" name="fightwep">
+                    <input type="text" class="text-two-all" id="fightwep" name="fightwep">
                 </li>
 
                 <li>
                     <label for="fightdmg">Damage:</label>
-                    <input type="text" id="fightdmg" name="fightdmg">
+                    <input type="text" class="text-two-all" id="fightdmg" name="fightdmg">
                 </li>
 
                 <li>
                     <label for="fightdef">Defence:</label>
-                    <input type="text" id="fightdef" name="fightdef">
+                    <input type="text" class="text-two-all" id="fightdef" name="fightdef">
                 </li>
 
                 <li>
                     <label for="fighthealth">Health:</label>
-                    <input type="text" id="fighthealth" name="fighthealth">
+                    <input type="text" class="text-two-all" id="fighthealth" name="fighthealth">
                 </li>
 
             </ul>
+
+            <h3 class="h3-all" id="h3-fighter-stat">Status Effects</h3>
+
+            <ul id="ul-two-fighter-c"></ul>
 
         </div>
 
@@ -215,7 +222,7 @@
 
     <div id="div-three">
 
-        <h1 id="h1-three">Victory is Yours!</h1>
+        <h1 class="h1-all" id="h1-three">Victory is Yours!</h1>
 
         <p id="p-three-victory">Pushing aside your combatant, you mustered what is left of your strength and threw yourself towards the bar. The barkeeper watched impassively as you desperately hang onto the counter against the maelstrom of brawlers all around you.</p>
 
@@ -256,7 +263,7 @@
 
     <div id="div-four">
 
-        <h1 id="h1-four">You Have Been Defeated!</h1>
+        <h1 class="h1-all" id="h1-four">You Have Been Defeated!</h1>
 
         <p id="p-four-defeat">That final attack was too much for your delicate sensibilities and you fall, swooning, upon the ground. Rough hands quickly empty your pockets and divested you of your clothes. The next morning, you woke up in the back alley with nothing to your name but... Someone else's underwear? Nasty.</p>
 

@@ -9,15 +9,6 @@ const divFour = document.getElementById("div-four");
 
 const buttonZero = document.getElementById("button-zero");
 
-document.getElementById("button-four-try").addEventListener("click", () => {
-    window.location.href = window.location.href;
-});
-
-document.getElementById("button-three-try").addEventListener("click", () => {
-    console.log("test");
-    window.location.href = window.location.href;
-});
-
 // Variables - Profile Pick
 
 const myDmg = document.getElementById("mydmg");
@@ -53,6 +44,39 @@ const fightDef = document.getElementById("fightdef");
 
 const fightHealth = document.getElementById("fighthealth"); 
 const combatList = document.getElementById("ol-two-combat");
+const fightStatlist = document.getElementById("ul-two-fighter-c")
+
+const itemOne = document.createElement("li");
+const itemTwo = document.createElement("li");
+const itemThree = document.createElement("li");
+const itemFour = document.createElement("li");
+const itemFive = document.createElement("li");
+const itemSix = document.createElement("li");
+const itemSeven = document.createElement("li");
+const itemEight = document.createElement("li");
+const itemNine = document.createElement("li");
+const itemTen = document.createElement("li");
+const itemEleven = document.createElement("li");
+const itemTwelve = document.createElement("li");
+const itemThirteen = document.createElement("li");
+const itemFourteen = document.createElement("li");
+const itemFifteen = document.createElement("li");
+
+const textOne = document.createElement("input");
+const textTwo = document.createElement("input");
+const textThree = document.createElement("input");
+const textFour = document.createElement("input");
+const textFive = document.createElement("input");
+const textSix = document.createElement("input");
+const textNine = document.createElement("input");
+const textFifteen = document.createElement("input");
+
+const buttonAtk = document.createElement("button");
+const buttonItem = document.createElement("button");
+const buttonFight = document.createElement("button");
+const buttonMy = document.createElement("button");
+const buttonVic = document.createElement("button")
+const buttonDef = document.createElement("button")
 
 // Variables - Currency Converter
 
@@ -69,6 +93,15 @@ const eurOutput = document.getElementById("p-three-eur");
 const usdOutput = document.getElementById("p-three-usd");
 
 // Styling Misc
+
+document.getElementById("button-four-try").addEventListener("click", () => {
+    window.location.href = window.location.href;
+});
+
+document.getElementById("button-three-try").addEventListener("click", () => {
+    console.log("test");
+    window.location.href = window.location.href;
+});
 
 // divBg.remove();
 // divZero.remove();
@@ -91,8 +124,9 @@ buttonZero.addEventListener("click", () => {
     }, 1000)
 })
 
-// Functions
+// Roll Functions
 
+function d2() {return Math.floor(Math.random()*2) + 1;}
 function d4() {return Math.floor(Math.random()*4) + 1};
 function d6() {return Math.floor(Math.random()*6) + 1};
 function d8() {return Math.floor(Math.random()*8) + 1};
@@ -107,7 +141,7 @@ function randomArr(item) {
 // NPC Template
 
 class Fighter {
-    constructor(name, race, weapon, damage, defence, health = 10) {
+    constructor(name, race, weapon, damage, defence, health = 15) {
         this.name = name;
         this.race = race;
         this.weapon = weapon;      
@@ -169,12 +203,15 @@ miscArray = [
         invMisc: "A Neurotic Chihuahua",
         descrp: "The dog goes in for the bite!",
         effect: () => {
-            const dog = Math.floor(Math.random()*2) + 1;
+            const dog = d2();
             if (dog === 2) {
                 textSix.value = d12();
                 fightHealth.value -= textSix.value;
             } else {
-                "No... no. The dog stood there, trembling uncontrollably, and drooled on the floor."
+                itemSix.remove();
+                textSix.remove();
+                itemFourteen.innerHTML = "No... no. The dog stood there, trembling uncontrollably, and drooled on the floor.";
+                combatList.append(itemFourteen);
             }
         },
     },
@@ -183,7 +220,7 @@ miscArray = [
         id: 7,
         invMisc: "Health Potion",
         descrp: "You gain 10 points of health back!",
-        effect: () => myHealth.value += 10,
+        effect: () => myHealth.value = Number(myHealth.value) + 10,
     },
 
     {
@@ -193,6 +230,8 @@ miscArray = [
         effect: () => {
             textSix.value = d10();
             fightHealth.value -= textSix.value;
+            itemFourteen.innerHTML = `${fightName.value} dives into a nearby puddle of beer!`
+            combatList.append(itemFourteen);
         },
     },
 
@@ -201,8 +240,10 @@ miscArray = [
         invMisc: "Pocket Sand",
         descrp: "Why is your pockets full of sand? No matter, you throw some at them.",
         effect: () => {
-            textSix.value = d4();
+            textSix.value = d6();
             fightHealth.value -= textSix.value;
+            itemFourteen.innerHTML = `${fightName.value} is blinded for a turn!`
+            combatList.append(itemFourteen);
         },
     },
 
@@ -211,16 +252,16 @@ miscArray = [
         invMisc: "Magic Beans",
         descrp: "You have some 'Magic Beans'. You throw them at the enemy's feet and hoped that it will do something.",
         effect: () => {
-            textSix.value = d6();
-            fightHealth.value -= textSix.value;
+            textFifteen.value = d4();
+            textSix.value = textFifteen.value;
+            fightHealth.value -= textFifteen.value;
+            itemFourteen.innerHTML = `A beautiful sunflower grows out of the ground and coughs in ${fightName.value}'s face. They are now poisoned!`
+            combatList.append(itemFourteen);
+            itemFifteen.innerHTML = "Poisoned";
+            fightStatlist.append(itemFifteen);
+            fightStatlist.append(textFifteen);
         },
     },
-
-    {
-        id: 11,
-        invMisc: "Gold",
-        effect: null, // adds gold
-    }
 ];
 
 // Conversation Arrays
@@ -309,6 +350,28 @@ const myDodge = [
     "You limbo'ed under their attack; they looked quite insulted."
 ]
 
+// NPC Generator
+
+fightName.readOnly = true;
+fightRace.readOnly = true;
+fightWep.readOnly = true;
+fightDmg.readOnly = true;
+fightDef.readOnly = true;
+fightHealth.readOnly = true;
+
+const wepGen = randomArr(weaponArray);
+[a, b, c, d, e] = [randomArr(nameArray), randomArr(raceArray),wepGen.weapon, wepGen.damage, wepGen.defence];
+
+function genFighter() {
+    fighterOne = new Fighter (a, b, c, d, e);
+    fightName.value = a;
+    fightRace.value = b;
+    fightWep.value = c;
+    fightDmg.value = (d.name).toUpperCase();
+    fightDef.value = e - 5; // ----------------------------------------------------------------------------Nerf the fighter
+    fightHealth.value = fighterOne.health;
+}
+
 // Profile Pick 
 
 const invOne = document.createElement("li");
@@ -336,75 +399,27 @@ function findItem() {
     myInv.append(invOne);
 }
 
-buttonPreview.addEventListener("click", findItem);
+buttonReady.disabled = true;
+
+buttonPreview.addEventListener("click", () => {
+    findItem();
+    buttonReady.disabled = false;
+});
 
 buttonReady.addEventListener("click", () => {
+    genFighter();
     divOne.style.opacity = 0;
     setTimeout(() => {
         divOne.remove();
         document.body.append(divTwo);
         myProf.style.paddingRight = "0px";
+        myProf.style.marginTop = "-70px";
         divTwo.append(myProf);
         myName.readOnly = true;
-        myRace.disabled = true; // ---------- To be Implemented
+        myRace.disabled = true; // -------------------------------------------------------------------- To be Implemented
         divTwo.style.opacity = 1;
-    }, 1000)
+    }, 1000);
 })
-
-// NPC Generator
-
-fightName.readOnly = true;
-fightRace.readOnly = true;
-fightWep.readOnly = true;
-fightDmg.readOnly = true;
-fightDef.readOnly = true;
-// fightHealth.readOnly = true;
-
-const wepGen = randomArr(weaponArray);
-[a, b, c, d, e] = [randomArr(nameArray), randomArr(raceArray),wepGen.weapon, wepGen.damage, wepGen.defence];
-
-buttonBegin.addEventListener("click", () => {
-    fighterOne = new Fighter (a, b, c, d, e);
-    fightName.value = a;
-    fightRace.value = b;
-    fightWep.value = c;
-    fightDmg.value = (d.name).toUpperCase();
-    fightDef.value = e - 5; // ---------- Nerf the Fighter for now
-    fightHealth.value = fighterOne.health;
-});
-
-// Battle Generator - Created Variables
-
-const itemOne = document.createElement("li");
-const itemTwo = document.createElement("li");
-const itemThree = document.createElement("li");
-const itemFour = document.createElement("li");
-const itemFive = document.createElement("li");
-const itemSix = document.createElement("li");
-const itemSeven = document.createElement("li");
-const itemEight = document.createElement("li");
-const itemNine = document.createElement("li");
-const itemTen = document.createElement("li");
-const itemEleven = document.createElement("li");
-const itemTwelve = document.createElement("li");
-
-const itemThirteen = document.createElement("li");
-const itemFourteen = document.createElement("li");
-
-const textOne = document.createElement("input");
-const textTwo = document.createElement("input");
-const textThree = document.createElement("input");
-const textFour = document.createElement("input");
-const textFive = document.createElement("input");
-const textSix = document.createElement("input");
-const textNine = document.createElement("input");
-
-const buttonAtk = document.createElement("button");
-const buttonItem = document.createElement("button");
-const buttonFight = document.createElement("button");
-const buttonMy = document.createElement("button");
-const buttonVic = document.createElement("button")
-const buttonDef = document.createElement("button")
 
 // Battle Generator - Styling
 
@@ -417,39 +432,25 @@ itemFive.innerHTML = "You both flail about embarrassingly and nothing happens.";
 itemSeven.innerHTML = myDamage[Math.floor(Math.random()*myDamage.length)];
 itemEight.innerHTML = myDodge[Math.floor(Math.random()*myDodge.length)];
 itemNine.innerHTML = fightDamage[Math.floor(Math.random()*fightDamage.length)];
-itemTen.innerHTML = startConvo[Math.floor(Math.random()*startConvo.length)];
-itemEleven.innerHTML = endConvo[Math.floor(Math.random()*endConvo.length)];
 itemTwelve.innerHTML = "Your vision starts to go black!";
 
 buttonAtk.innerHTML = "Attack!";
-buttonAtk.style.backgroundColor = "rgba(165, 42, 42, 0)";
-buttonAtk.style.border = "1px solid black";
-buttonAtk.style.fontSize = "80%";
+buttonAtk.classList.add("button-two-all");
 
 buttonItem.innerHTML = "Use Item";
-buttonItem.style.backgroundColor = "rgba(165, 42, 42, 0)";
-buttonItem.style.border = "1px solid black";
-buttonItem.style.fontSize = "80%";
+buttonItem.classList.add("button-two-all");
 
 buttonFight.innerHTML = "Enemy's Turn";
-buttonFight.style.backgroundColor = "rgba(165, 42, 42, 0)";
-buttonFight.style.border = "1px solid black";
-buttonFight.style.fontSize = "80%";
+buttonFight.classList.add("button-two-all");
 
 buttonMy.innerHTML = "Your Turn";
-buttonMy.style.backgroundColor = "rgba(165, 42, 42, 0)";
-buttonMy.style.border = "1px solid black";
-buttonMy.style.fontSize = "80%";
+buttonMy.classList.add("button-two-all");
 
 buttonVic.innerHTML = "Victory!";
-buttonVic.style.backgroundColor = "rgba(165, 42, 42, 0)";
-buttonVic.style.border = "1px solid black";
-buttonVic.style.fontSize = "80%";
+buttonVic.classList.add("button-two-all");
 
 buttonDef.innerHTML = "Defeat!";
-buttonDef.style.backgroundColor = "rgba(165, 42, 42, 0)";
-buttonDef.style.border = "1px solid black";
-buttonDef.style.fontSize = "80%";
+buttonDef.classList.add("button-two-all");
 
 // Battle Generator - Functions
 
@@ -464,25 +465,26 @@ function attackRoll() {
 
 function myAction() {
     if (Number(textOne.value) > Number(textTwo.value)) {
-        combatList.append(itemThree);
         combatList.append(buttonAtk);
         combatList.append(buttonItem);
     } else if (Number(textOne.value) < Number(textTwo.value)) {
         combatList.append(itemFour);
         combatList.append(buttonFight);
-    } else if (Number(textOne.value) === Number(textTwo.value)) {
+    } else {
         combatList.append(itemFive);
         combatList.append(buttonFight);
     }
 }
 
 buttonBegin.addEventListener("click", () => {
+    itemTen.innerHTML = `${fightName.value}: ${startConvo[Math.floor(Math.random()*startConvo.length)]}`;
     combatList.append(itemTen);
     attackRoll();
     setTimeout(() => {myAction()}, 1000)
 });
 
 function myAtkdmg() {
+    combatList.append(itemThree);
     const thisWep = weaponArray.find(item => item.weapon === myWep.value);
     textSix.value = thisWep.damage();
     fightHealth.value -= textSix.value;
@@ -492,6 +494,7 @@ function myAtkdmg() {
     buttonAtk.remove();
     buttonItem.remove();
     if (fightHealth.value <= 0) {
+        itemEleven.innerHTML = `${fightName.value}: ${endConvo[Math.floor(Math.random()*endConvo.length)]}`;
         combatList.append(itemEleven);
         combatList.append(buttonVic);
     } else {
@@ -501,18 +504,8 @@ function myAtkdmg() {
 
 buttonAtk.addEventListener("click", myAtkdmg);
 
-buttonVic.addEventListener("click", () => {
-    divTwo.style.opacity = 0;
-    divOne.style.opacity = 0;
-    setTimeout(() => {
-        divTwo.remove();
-        myProf.remove();
-        document.body.append(divThree);
-        divThree.style.opacity = 1;
-    }, 1000)
-});
-
 function fightAction() {
+    statEffect();
     if (Number(textOne.value) > Number(textTwo.value)) {
         combatList.append(itemEight); 
         combatList.append(buttonMy);
@@ -534,28 +527,32 @@ function fightAction() {
     }
 }
 
-buttonDef.addEventListener("click", () => {
+function conCombat(action) {
+    combatList.innerHTML = "";
+    attackRoll();
+    setTimeout(() => {action()}, 1000);
+}
+
+buttonFight.addEventListener("click", () => conCombat(fightAction));
+
+buttonMy.addEventListener("click", () => conCombat(myAction));
+
+function endCombat(ele) {
     divTwo.style.opacity = 0;
     divOne.style.opacity = 0;
     setTimeout(() => {
         divTwo.remove();
         myProf.remove();
-        document.body.append(divFour);
-        divFour.style.opacity = 1;
+        document.body.append(ele);
+        ele.style.opacity = 1;
     }, 1000)
-});
+}
 
-buttonFight.addEventListener("click", () => {
-    combatList.innerHTML = "";
-    attackRoll();
-    setTimeout(() => {fightAction()}, 1000)
-});
+buttonVic.addEventListener("click", () => endCombat(divThree));
 
-buttonMy.addEventListener("click", () => {
-    combatList.innerHTML = "";
-    attackRoll();
-    setTimeout(() => {myAction()}, 1000)
-});
+buttonDef.addEventListener("click", () => endCombat(divFour));
+
+// Item Use
 
 function itemUsage() {
     const itemUsed = miscArray.find(item => item.invMisc === invOne.innerHTML);
@@ -564,46 +561,42 @@ function itemUsage() {
     combatList.append(itemSix);
     itemSix.append(textSix);
     itemUsed.effect();
-}
-
-buttonItem.addEventListener("click", () => {
-    itemUsage();
     buttonItem.disabled = true;
     setTimeout(() => {
         if (fightHealth.value <= 0) {
         combatList.append(itemEleven);
         combatList.append(buttonVic);
-    } else {
-        combatList.append(buttonFight);
-    }}, 1000)
-});
+        } else if (itemUsed.id === 9) {
+            combatList.append(buttonMy);
+        } else {
+            combatList.append(buttonFight);
+        }
+    }, 1000);
+}
+
+buttonItem.addEventListener("click", itemUsage);
+
+// Status Effects
+
+function statEffect() {
+    if (itemFifteen.innerHTML === "Poisoned") {
+        textFifteen.value = d4();
+        fightHealth.value -= textFifteen.value;
+        itemFourteen.innerHTML = `The sunflower coughs even more. ${fightName.value} is poisoned again!`;
+        combatList.append(itemFourteen);
+    }
+}
 
 // Currency Converter
 
-function convSgd() {
-    const sgd = Number(sgdText.value);
-    sgdOutput.innerHTML = (`Singapore Dollars: $${(sgd)}`);
-    eurOutput.innerHTML = (`Euros: €${Math.round((sgd * 0.63683787) * 100) / 100}`);
-    usdOutput.innerHTML = (`US Dollars: $${Math.round((sgd * 0.74412913) * 100) / 100}`);
-    sgdText.value = ' ';
+function convCur(curText, mathsgd, matheur, mathusd) {
+    const curr = Number(curText.value);
+    sgdOutput.innerHTML = (`Singapore Dollars: $${Math.round((curr * mathsgd) * 100) / 100}`);
+    eurOutput.innerHTML = (`Euros: €${Math.round((curr * matheur) * 100) / 100}`);
+    usdOutput.innerHTML = (`US Dollars: $${Math.round((curr * mathusd) * 100) / 100}`);
+    curText.value = '';
 }
 
-function convEur() {
-    const eur = Number(eurText.value);
-    sgdOutput.innerHTML = (`Singapore Dollars: $${Math.round((eur * 1.5698403) * 100) / 100}`);
-    eurOutput.innerHTML = (`Euros: €${(eur)}`);
-    usdOutput.innerHTML = (`US Dollars: $${Math.round((eur * 1.1680166) * 100) / 100}`);
-    eurText.value = ' ';
-}    
-
-function convUsd() {
-    const usd = Number(usdText.value);
-    sgdOutput.innerHTML = (`Singapore Dollars: $${Math.round((usd * 1.3442522) * 100) / 100}`);
-    eurOutput.innerHTML = (`Euros: €${Math.round((usd * 0.85619182) * 100) / 100}`);
-    usdOutput.innerHTML = (`US Dollars: $${(usd)}`);
-    usdText.value = ' ';
-}    
-
-sgdButton.addEventListener('click', convSgd);
-eurButton.addEventListener('click', convEur);
-usdButton.addEventListener('click', convUsd);
+sgdButton.addEventListener('click', () => convCur(sgdText, 1, 0.63683787, 0.74412913));
+eurButton.addEventListener('click', () => convCur(eurText, 1.5698403, 1, 1.1680166));
+usdButton.addEventListener('click', () => convCur(usdText, 1.3442522, 0.85619182, 1));
