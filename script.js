@@ -24,12 +24,6 @@ const buttonPreview = document.getElementById("button-one-preview");
 const buttonReady = document.getElementById("button-one-ready");
 const myProf = document.getElementById("div-one-prof");
 
-const sword = document.getElementById("sword");
-const axe = document.getElementById("axe");
-const staff = document.getElementById("staff");
-const dagger = document.getElementById("dagger");
-const fist = document.getElementById("fist");
-
 // Variables - NPC Generator
 
 const buttonBegin = document.getElementById("button-two-begin")
@@ -64,9 +58,6 @@ const itemFifteen = document.createElement("li");
 
 const textOne = document.createElement("input");
 const textTwo = document.createElement("input");
-const textThree = document.createElement("input");
-const textFour = document.createElement("input");
-const textFive = document.createElement("input");
 const textSix = document.createElement("input");
 const textNine = document.createElement("input");
 const textFifteen = document.createElement("input");
@@ -153,13 +144,13 @@ class Fighter {
 
 // NPC Arrays
 
-nameArray = ["Gratin Dauphinois", "Reibekuchen", "Bratkartoffeln", "Rosti", "Patat Frites", "Stamppot", "Hutspot"];
+const nameArray = ["Gratin Dauphinois", "Reibekuchen", "Bratkartoffeln", "Rosti", "Patat Frites", "Stamppot", "Hutspot"];
 
-raceArray = ["Human", "Elf", "Dwarf", "Half-orc", "Halfling", "Gnome", "Dragonborn", "Half-elf"];
+const raceArray = ["Human", "Elf", "Dwarf", "Half-orc", "Halfling", "Gnome", "Dragonborn", "Half-elf"];
 
 // Item Arrays
 
-weaponArray = [
+const weaponArray = [
     {
         id: 1,
         weapon: "Greatsword",
@@ -196,7 +187,7 @@ weaponArray = [
     }
 ];
 
-miscArray = [
+const miscArray = [
 
     {
         id: 6,
@@ -284,14 +275,6 @@ const endConvo = [
 
 // NPC Action Arrays
 
-const fightAttack = [
-    "With an almighty swing, they go for your neck!",
-    "They lunge with lightning speed towards you!",
-    "They move in for the kill with confidence.",
-    "With a roar, they charge towards you!",
-    "They close in for a quick strike."
-];
-
 const fightDamage = [
     "They deal a powerful blow to your face!",
     "A strike to your chest slice your skin open!",
@@ -300,20 +283,17 @@ const fightDamage = [
     "They shank you in the kidney!"
 ]
 
-const fightMiss = [
-    "They wobble and fall over their own legs.",
-    "They were distracted by someone running past with no pants.",
-    "A splash of beer to the back of their head threw them off.",
-    "They look like they momentarily forgot what they were doing.",
-    "A drunk barreled into them and knocked them off balance"
-];
-
 const fightDodge = [
     "They leap backwards and jeer at you.",
     "They sidestep your wild swing.",
     "Scrambling backwards, they manage to avoid your attack.",
     "With the ease of a drunk, they wobble out of the way.",
-    "They limbo'ed under your attack, and you feel quite insulted."
+    "They limbo'ed under your attack, and you feel quite insulted.",
+    "You wobble and fall over your own legs.",
+    "You were distracted by someone running past with no pants.",
+    "A splash of beer to the back of your head threw you off.",
+    "You look like you momentarily forgot what you were doing.",
+    "A drunk barreled into you and knocked you off balance"
 ]
 
 // My Action Arrays
@@ -334,20 +314,17 @@ const myDamage = [
     "You shank them in the kidney!"
 ]
 
-const myMiss = [
-    "You wobble and fall over your own legs.",
-    "You were distracted by someone running past with no pants.",
-    "A splash of beer to the back of your head threw you off.",
-    "You look like you momentarily forgot what you were doing.",
-    "A drunk barreled into you and knocked you off balance"
-];
-
 const myDodge = [
     "You leap backwards and jeer at them.",
     "You sidestep their wild swing.",
     "Scrambling backwards, you manage to avoid their attack.",
     "With the grace of a butterfly, you fluttered out of the way.",
-    "You limbo'ed under their attack; they looked quite insulted."
+    "You limbo'ed under their attack; they looked quite insulted.",
+    "They wobble and fall over their own legs.",
+    "They were distracted by someone running past with no pants.",
+    "A splash of beer to the back of their head threw them off.",
+    "They look like they momentarily forgot what they were doing.",
+    "A drunk barreled into them and knocked them off balance"
 ]
 
 // NPC Generator
@@ -360,10 +337,10 @@ fightDef.readOnly = true;
 fightHealth.readOnly = true;
 
 const wepGen = randomArr(weaponArray);
-[a, b, c, d, e] = [randomArr(nameArray), randomArr(raceArray),wepGen.weapon, wepGen.damage, wepGen.defence];
+const [a, b, c, d, e] = [randomArr(nameArray), randomArr(raceArray),wepGen.weapon, wepGen.damage, wepGen.defence];
 
 function genFighter() {
-    fighterOne = new Fighter (a, b, c, d, e);
+    const fighterOne = new Fighter (a, b, c, d, e);
     fightName.value = a;
     fightRace.value = b;
     fightWep.value = c;
@@ -564,8 +541,9 @@ function itemUsage() {
     buttonItem.disabled = true;
     setTimeout(() => {
         if (fightHealth.value <= 0) {
-        combatList.append(itemEleven);
-        combatList.append(buttonVic);
+            itemEleven.innerHTML = `${fightName.value}: ${endConvo[Math.floor(Math.random()*endConvo.length)]}`;
+            combatList.append(itemEleven);
+            combatList.append(buttonVic);
         } else if (itemUsed.id === 9) {
             combatList.append(buttonMy);
         } else {
